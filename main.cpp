@@ -277,15 +277,15 @@ bool revise(istream& fold, istream& frevision, ostream& fnew) {
 int main() {
 	bool createrevise = 1;
 	if (createrevise) {
-		ifstream oldfile("crazyrandom1k1.txt", ios::binary);
-		ifstream newfile("crazyrandom1k2.txt", ios::binary);
+		ifstream oldfile("original.txt", ios::binary);
+		ifstream newfile("edited.txt", ios::binary);
 		ofstream revfile("revise.txt", ios::binary);
 		createRevision(oldfile, newfile, revfile);
 	}
-	else {
-		ifstream infile("mallmart1.txt", ios::binary);
+	else { //create edited file
+		ifstream infile("original.txt", ios::binary);
 		ifstream revisefile("revise.txt", ios::binary);
-		ofstream outfile("out.txt", ios::binary);   // outfile is a name of our choosing.
+		ofstream outfile("edited.txt", ios::binary);   // outfile is a name of our choosing.
 		cout << revise(infile, revisefile, outfile);
 	}
 }
